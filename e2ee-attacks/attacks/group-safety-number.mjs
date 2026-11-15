@@ -224,6 +224,19 @@ const results = [];
 for (const [ i, page ] of pages.entries()) {
     results.push({ name: names[i], ...await page.evaluate(() => window.__group) });
 }
+// --screenshots <dir>: each participant's screen as the outcome stands, as evidence.
+if (argv.includes('--screenshots')) {
+    const dir = argv[argv.indexOf('--screenshots') + 1];
+
+    fs.mkdirSync(dir, { recursive: true });
+    await new Promise(r => setTimeout(r, 2000));
+    for (const [ i, page ] of pages.entries()) {
+        const file = `${dir}/${attack}-${names[i]}.png`;
+
+        await page.screenshot({ path: file });
+        console.log(`screenshot: ${file}`);
+    }
+}
 await Promise.all(pages.map(leaveMeeting));
 await browser.close();
 

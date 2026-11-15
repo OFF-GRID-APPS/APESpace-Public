@@ -354,6 +354,19 @@ const a = await received(alice);
 const b = await received(bob);
 const cmp = compareCaptures(a.meta, b.meta);
 
+// --screenshots <dir>: each participant's screen as the outcome stands, as evidence.
+if (argv.includes('--screenshots')) {
+    const dir = argv[argv.indexOf('--screenshots') + 1];
+
+    fs.mkdirSync(dir, { recursive: true });
+    await new Promise(r => setTimeout(r, 2000));
+    for (const [ i, page ] of [ alice, bob ].entries()) {
+        const file = `${dir}/${attack}-${[ 'alice', 'bob' ][i]}.png`;
+
+        await page.screenshot({ path: file });
+        console.log(`screenshot: ${file}`);
+    }
+}
 await Promise.all([ alice, bob ].map(leaveMeeting));
 await browser.close();
 
