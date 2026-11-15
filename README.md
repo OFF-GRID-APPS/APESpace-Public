@@ -21,7 +21,7 @@ Public, signed records of the code APESpace's meeting servers run, so anyone can
 | `releases/<release id>/builds/<record>.sbom.cdx.json` | The build's software bill of materials (CycloneDX). Its SHA-256 is in the signed record. |
 | `e2ee-module/` | How to rebuild the encryption library from Jitsi's public source and our public patches. |
 | `e2ee-attacks/` | Scripts that play a malicious server against a real meeting, and checks of key handling, replays, codecs, leaks and the media path. |
-| `docs/` | Our written positions for security reviewers: cryptographic roadmap, re-review policy, build pipeline, device security, and our assessment of the 2023 academic analysis of Jitsi. |
+| `docs/` | The [customer explainer](docs/customer-explainer.md), "How APESpace proves its meetings are end-to-end encrypted", and our written positions for security reviewers: cryptographic roadmap, re-review policy, build pipeline, device security, and our assessment of the 2023 academic analysis of Jitsi. |
 | `extension/` | The APESpace Verify browser extension. `extension/lib/` holds the signature and release checks shared by the extension, the page and the command line; `extension/config.json` the sites and trust anchors. |
 | `verify/` | The environment check used by the verification page and the command line. |
 | `index.html` | The verification page. |
