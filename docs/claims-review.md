@@ -32,6 +32,7 @@ _Review of 13 November 2026, against the audit readiness checklist. Answers chec
 | Recorded traffic might be decrypted by a future quantum computer | KEY-08 |
 | Code sent to one person: without the extension, a user can't tell | REL-05 |
 | The in-app fingerprints make comparing easy, but aren't proof | CLI-05 |
+| The servers can see who is speaking and when, and how active the video is, from the traffic's size and timing | MET-02 |
 
 Protections that were missing from the explainer, now described:
 - newcomers can't read earlier media;
