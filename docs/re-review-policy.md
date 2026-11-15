@@ -1,6 +1,6 @@
 # Re-review policy for encryption-relevant changes
 
-_Status: draft for APE Space approval · 13 November 2026. Answers checklist row REL-09._
+_Status: approved by APE Space · 15 November 2026. Answers checklist row REL-09._
 
 An audit covers one release. Releases are reproducible and signed (`releases/`), so an audit report names the exact release ID it covers, and anyone can check whether an environment runs it (`verify/`). This policy says which later changes need a new review before they reach production.
 

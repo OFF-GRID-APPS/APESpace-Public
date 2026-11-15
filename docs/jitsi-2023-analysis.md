@@ -1,6 +1,6 @@
 # The 2023 analysis of Jitsi Meet, assessed against APE Space
 
-_Status: draft for APE Space approval · 13 November 2026_
+_Status: approved by APE Space · 15 November 2026_
 
 **The analysis.** Robertas Maleckas, Kenneth G. Paterson and Martin R. Albrecht, "Practically-exploitable Vulnerabilities in the Jitsi Video Conferencing System", [IACR ePrint 2023/1118](https://eprint.iacr.org/2023/1118) (July 2023). It grew out of Maleckas's 2022 ETH Zürich master's thesis. The authors studied jitsi-meet 2.0.6865 with lib-jitsi-meet `4baeb98964c6` (early 2022). They reported six issues to Jitsi on 9 August 2022.
 
