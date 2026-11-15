@@ -1,7 +1,7 @@
 // Command-line version of the verification page (Node 20 or later):
 //
-//   git clone https://github.com/hishd/apespace-e2ee-transparency.git
-//   cd apespace-e2ee-transparency
+//   git clone https://github.com/hishd/apespace-public.git
+//   cd apespace-public
 //   node verify/cli.mjs
 //
 // Exits with 0 only if every environment serves exactly the same signed release.

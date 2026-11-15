@@ -98,8 +98,8 @@ The part of APESpace that encrypts your meeting is Jitsi's open-source library, 
 | --- | --- |
 | File your browser loads | `/libs/lib-jitsi-meet.min.js` |
 | Its fingerprint (SHA-256) | `686d5d759c1a7173736de95cf83fd61ca9fc2abcaedd39ba36e1bd8c8ee0a20c` (its worker, key store and Olm files have published fingerprints too) |
-| Source | [jitsi/lib-jitsi-meet](https://github.com/jitsi/lib-jitsi-meet) version 2118.0.0, plus the eight public changes in [e2ee-module](https://github.com/hishd/apespace-e2ee-transparency/tree/main/e2ee-module) |
-| Rebuild instructions | [e2ee-module](https://github.com/hishd/apespace-e2ee-transparency/tree/main/e2ee-module) in our public transparency repository |
+| Source | [jitsi/lib-jitsi-meet](https://github.com/jitsi/lib-jitsi-meet) version 2118.0.0, plus the eight public changes in [e2ee-module](https://github.com/hishd/apespace-public/tree/main/e2ee-module) |
+| Rebuild instructions | [e2ee-module](https://github.com/hishd/apespace-public/tree/main/e2ee-module) in our public transparency repository |
 
 A fingerprint is a short code calculated from a file's contents. Change a single byte and the fingerprint changes completely. If your rebuilt file has the same fingerprint as the one we deliver, the two files are identical.
 
@@ -113,15 +113,15 @@ Each version of the APESpace app we deploy has a public record. The record lists
 2. **Every file is fingerprinted.** The build lists every file in the app with its fingerprint. The fingerprint of that list becomes the release ID.
 3. **The build system signs the record.** We use [Sigstore](https://www.sigstore.dev/), a free public signing service run by the Linux Foundation's Open Source Security Foundation. The signature is tied to our build workflow on GitHub, not to a person, so nobody can sign a record from a laptop, not even us.
 4. **The signature goes into a public log.** Sigstore writes every signature into Rekor, its public append-only log. Entries can't be changed or removed, so a release can't be quietly replaced later.
-5. **The record is published.** It goes into our [public transparency repository](https://github.com/hishd/apespace-e2ee-transparency) under `releases/<release ID>/`. That repository blocks rewriting history.
+5. **The record is published.** It goes into our [public transparency repository](https://github.com/hishd/apespace-public) under `releases/<release ID>/`. That repository blocks rewriting history.
 
 The result: if we ever served code that wasn't built and signed this way, it couldn't match any signed record. If we did build and sign something different, it would show up permanently in the public log.
 
-You can check a record with Sigstore's own `cosign` tool, without trusting our page or extension. The exact command is in the [repository README](https://github.com/hishd/apespace-e2ee-transparency#how-releases-are-signed).
+You can check a record with Sigstore's own `cosign` tool, without trusting our page or extension. The exact command is in the [repository README](https://github.com/hishd/apespace-public#how-releases-are-signed).
 
 ## Proof 3: the verification page checks what our servers actually deliver
 
-Our [verification page](https://hishd.github.io/apespace-e2ee-transparency/) downloads the app straight from our servers and checks it against the signed release, in your own browser. Press **Verify now**. The page checks both our development and production environments, and for each one it:
+Our [verification page](https://hishd.github.io/apespace-public/) downloads the app straight from our servers and checks it against the signed release, in your own browser. Press **Verify now**. The page checks both our development and production environments, and for each one it:
 
 1. Downloads every script, stylesheet and data file of the app from that server.
 2. Calculates each file's fingerprint in your browser.
@@ -143,7 +143,7 @@ The verification page checks what our servers deliver in general. The APESpace V
 
 **Install it (Chrome, Edge or Brave):**
 
-1. Download the [transparency repository](https://github.com/hishd/apespace-e2ee-transparency) (**Code → Download ZIP**) and unzip it.
+1. Download the [transparency repository](https://github.com/hishd/apespace-public) (**Code → Download ZIP**) and unzip it.
 2. Open `chrome://extensions` and turn on **Developer mode**.
 3. Click **Load unpacked** and choose the `extension` folder.
 4. Pin **APESpace Verify** to the toolbar.
@@ -218,7 +218,7 @@ The checks also rely on GitHub and Sigstore working as designed. Both are widely
 
 ## Links
 
-- [Verification page](https://hishd.github.io/apespace-e2ee-transparency/)
-- [Public transparency repository](https://github.com/hishd/apespace-e2ee-transparency): signed records, extension, rebuild instructions
+- [Verification page](https://hishd.github.io/apespace-public/)
+- [Public transparency repository](https://github.com/hishd/apespace-public): signed records, extension, rebuild instructions
 - [Sigstore](https://www.sigstore.dev/) and its [log search](https://search.sigstore.dev/)
 - [Jitsi's lib-jitsi-meet](https://github.com/jitsi/lib-jitsi-meet)

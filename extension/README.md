@@ -13,7 +13,7 @@ You are loading the code in this folder, so you can read every line of what you 
 
 ## 1. Code check (always on)
 
-When you open an APESpace meeting, the extension fingerprints (SHA-256) every script, WebAssembly module and stylesheet the meeting loads, including those of embedded meetings and of the meeting's workers. It compares them with the release whose app the meeting loaded, and checks that release is signed by APESpace's official build. The checks are the same as on the [verification page](https://hishd.github.io/apespace-e2ee-transparency/): Sigstore signature, certificate issued to the build workflow, entry in Sigstore's public log.
+When you open an APESpace meeting, the extension fingerprints (SHA-256) every script, WebAssembly module and stylesheet the meeting loads, including those of embedded meetings and of the meeting's workers. It compares them with the release whose app the meeting loaded, and checks that release is signed by APESpace's official build. The checks are the same as on the [verification page](https://hishd.github.io/apespace-public/): Sigstore signature, certificate issued to the build workflow, entry in Sigstore's public log.
 
 The toolbar icon shows:
 

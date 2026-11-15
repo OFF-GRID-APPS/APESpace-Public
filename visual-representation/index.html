@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>APE Space E2EE Walkthrough</title>
+<meta name="description" content="An interactive, step-by-step walkthrough of how APE Space meetings are end-to-end encrypted, how attacks are caught, and how anyone can verify the code.">
+<link rel="stylesheet" href="css/styles.css">
+<script>
+  // Apply a saved theme before first paint.
+  try { const t = localStorage.getItem('wt-theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+</head>
+<body>
+<header class="top">
+  <button class="icon-btn nav-toggle" id="navToggle" aria-label="Show chapters" aria-expanded="false">☰</button>
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">🔐</span>
+    <div>
+      <div class="brand-title">APE Space end-to-end encryption</div>
+      <div class="brand-sub">An interactive walkthrough: how it works, how attacks are caught, how you can check it</div>
+    </div>
+  </div>
+  <div class="top-actions">
+    <button class="text-btn" id="glossaryBtn">Glossary</button>
+    <button class="icon-btn" id="themeBtn" aria-label="Switch colour theme" title="Switch colour theme">◐</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="nav" id="nav" aria-label="Chapters">
+    <ol class="chapters" id="chapters"></ol>
+  </aside>
+  <div class="nav-scrim" id="navScrim" hidden></div>
+
+  <main class="main">
+    <section class="stage-card" aria-label="Diagram">
+      <div class="stage-wrap" id="stageWrap">
+        <div class="stage-sizer" id="stageSizer" aria-hidden="true"></div>
+        <div class="stage" id="stage">
+          <svg class="edges" id="edges" width="1200" height="700" viewBox="0 0 1200 700" aria-hidden="true"></svg>
+          <div class="nodes" id="nodes"></div>
+          <div class="overlay" id="overlay"></div>
+          <div class="packets" id="packets" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="ctl" id="prevBtn" aria-label="Previous step">◀ <span>Back</span></button>
+        <button class="ctl ctl-play" id="playBtn" aria-label="Pause animation">⏸</button>
+        <button class="ctl" id="replayBtn" aria-label="Replay this step" title="Replay this step">↻</button>
+        <label class="speed" title="Animation speed (− / + keys)">
+          <span>Speed</span>
+          <select id="speedSel" aria-label="Animation speed">
+            <option value="0.25">0.25×</option>
+            <option value="0.5">0.5×</option>
+            <option value="0.75">0.75×</option>
+            <option value="1" selected>1×</option>
+            <option value="1.5">1.5×</option>
+            <option value="2">2×</option>
+          </select>
+        </label>
+        <div class="dots" id="dots" role="tablist" aria-label="Steps in this chapter"></div>
+        <div class="counter" id="counter"></div>
+        <button class="ctl ctl-next" id="nextBtn" aria-label="Next step"><span>Next</span> ▶</button>
+      </div>
+      <div class="legend" id="legend" aria-label="Legend"></div>
+    </section>
+
+    <article class="story" id="story" aria-live="polite"></article>
+  </main>
+</div>
+
+<dialog class="glossary" id="glossary">
+  <form method="dialog"><button class="icon-btn close" aria-label="Close">✕</button></form>
+  <h2>Glossary</h2>
+  <dl id="glossaryList"></dl>
+</dialog>
+
+<script src="js/scenes.js"></script>
+<script src="js/steps-meeting.js"></script>
+<script src="js/steps-attacks.js"></script>
+<script src="js/steps-release.js"></script>
+<script src="js/glossary.js"></script>
+<script src="js/engine.js"></script>
+</body>
+</html>
