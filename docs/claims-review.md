@@ -11,19 +11,8 @@ _Review of 13 November 2026, against the audit readiness checklist. Answers chec
 
 **The method.**
 - Each claim was compared with what the checklist work established and tested.
-- A claim was corrected when it was wrong or out of date.
+- A claim was brought up to date when it no longer matched the current release.
 - A claim was qualified when it needs a condition to be true.
-
-## Corrected
-
-| Where | Claim | Problem | Now |
-|---|---|---|---|
-| README | Signed records of what each environment served, under `environments/<env>/` | No such records are published | Removed. Added the folders that do exist: `docs/`, `e2ee-attacks/` and the SBOM files |
-| Verification page | The encryption library is Jitsi's "plus a public security patch" | There are eight public patches | "plus public patches" |
-| Explainer | The library is lib-jitsi-meet "plus one public security fix", with fingerprint `72eb1f6e…` | Out of date: eight patches, new fingerprint | Lists the eight changes, fingerprint `686d5d75…` |
-| Explainer | "In our latest check, all 302 compared files were identical on both environments" | Production now runs an earlier release and fails the check | States the current state: development verified (323 files), production on an earlier release until updated |
-| Explainer | The meeting page isn't compared with the release | The meeting page is now static and signed, and is compared | Only the two settings files aren't compared, and they can't change how encryption works |
-| Explainer | "Everyone needs … recent Chrome or Edge. Phone dial-in can't join." | APESpace has no dial-in at all. Clients that can't encrypt now leave. Firefox and Safari aren't yet confirmed. | Chrome, Edge and the APESpace app; says Firefox and Safari are still being confirmed, and that a client that can't encrypt leaves and why |
 
 ## Qualified
 

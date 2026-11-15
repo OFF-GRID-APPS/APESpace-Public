@@ -1,6 +1,6 @@
 # How APE Space builds, signs and publishes a release
 
-_Status: draft for APE Space approval · 13 November 2026. Answers checklist rows REL-02, REL-06, REL-07 and REL-08._
+_Status: approved by APE Space · 15 November 2026. Answers checklist rows REL-02, REL-06, REL-07 and REL-08._
 
 ## The pipeline
 
