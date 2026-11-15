@@ -18,8 +18,10 @@ Public, signed records of the code APESpace's meeting servers run, so anyone can
 | `releases/<release id>/manifest.json` | SHA-256 and size of every file in the web app of one release. The release id is the SHA-256 of this file. |
 | `releases/<release id>/builds/<time>-<branch>-<commit>.json` | A build record: which commit and branch of APESpace's source produced this release, and when. |
 | `…json.sigstore.json` | The record's [Sigstore](https://www.sigstore.dev/) signature. |
-| `environments/<env>/` | Signed records of what each environment served, published whenever that changes. |
-| `e2ee-module/` | How to rebuild the encryption library from Jitsi's public source. |
+| `releases/<release id>/builds/<record>.sbom.cdx.json` | The build's software bill of materials (CycloneDX). Its SHA-256 is in the signed record. |
+| `e2ee-module/` | How to rebuild the encryption library from Jitsi's public source and our public patches. |
+| `e2ee-attacks/` | Scripts that play a malicious server against a real meeting, and checks of key handling, replays, codecs, leaks and the media path. |
+| `docs/` | Our written positions for security reviewers: cryptographic roadmap, re-review policy, build pipeline, device security, and our assessment of the 2023 academic analysis of Jitsi. |
 | `extension/` | The APESpace Verify browser extension. `extension/lib/` holds the signature and release checks shared by the extension, the page and the command line; `extension/config.json` the sites and trust anchors. |
 | `verify/` | The environment check used by the verification page and the command line. |
 | `index.html` | The verification page. |
