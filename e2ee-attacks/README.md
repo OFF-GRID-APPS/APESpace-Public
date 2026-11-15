@@ -183,6 +183,14 @@ In an encrypted meeting, Alice uses every content channel (display name, chat, p
 node checks/content-channels.mjs --url "https://<meeting URL>"
 ```
 
+## The build fingerprint in the meeting — `checks/build-fingerprint.mjs`
+
+A guest opens Security options and reads "This meeting's code". The check compares the app fingerprint shown with the SHA-256 of the app bundle the server serves, and the library fingerprint with the published one (`extension/config.json`). It then opens the guest's link to the verification page and reads which signed release it reports.
+
+```sh
+node checks/build-fingerprint.mjs --url "https://<meeting URL>" [--guest-token <jwt>]
+```
+
 ## The media path — `checks/media-path.mjs`
 
 In an encrypted meeting, reads from inside each browser the network path media takes (the selected ICE candidate pair: direct to the bridge or through a TURN relay, remote address and protocol), the STUN/TURN servers offered (addresses only), and whether every frame the bridge forwarded is end-to-end encrypted.
