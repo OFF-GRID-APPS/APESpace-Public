@@ -1,0 +1,14 @@
+{
+  "schema": "apespace-build-record/v1",
+  "release": "0637578c8430fc9441817a7562c8a9e2a38bf4801769171187ce4a8da256973d",
+  "files": 732,
+  "image": "ghcr.io/off-grid-apps/apespace-jitsi-meet-webapp@sha256:8c0c4e8a70ad7ac44346ab535a7699cb6d52c2519eea029b130e1368f7a14a84",
+  "sbom": "36acc63084cddab8a812313ae75859564e8cb9ef62fd261942b377c665b0c28d",
+  "source": {
+    "repository": "OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp",
+    "branch": "develop",
+    "commit": "81633c8b039bf33851390b3b7facd5973d9daa8d"
+  },
+  "builtAt": "2026-11-15T19:13:34.054Z",
+  "run": "https://github.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/actions/runs/43750489253"
+}
