@@ -1,6 +1,6 @@
 # How APE Space builds, signs and publishes a release
 
-_Status: draft for APE Space approval · 13 November 2026. Answers checklist rows REL-02, REL-06, REL-07 and REL-08._
+_Status: approved by APE Space · 15 November 2026. Answers checklist rows REL-02, REL-06, REL-07 and REL-08._
 
 ## The pipeline
 
@@ -63,7 +63,7 @@ The organisation allows any third-party action to run. The workflow pins every a
 
 - **No signing key to hold.** There is no long-lived signing key, so there is no hardware key inventory. Each signature uses a certificate valid for minutes, issued by Sigstore to the workflow's identity after GitHub vouches for the run.
 - **Releases can't be signed outside the pipeline.** No person can produce a valid release record outside it. Every signing event is public in Rekor, and is listed in `releases/` with its Rekor entry.
-- **The two-person gap.** One person with write access to the application repository can change what the workflow builds and signs (the workflow is in the same repository), because second-person review isn't enforced (REL-08). Until it is, a single insider could ship a release that passes the checks. That release would still be public, signed and logged with its commit, and so attributable and reviewable after the fact.
+- **The two-person gap.** One person with write access to the application repository can change what the workflow builds and signs (the workflow is in the same repository), because no second review is enforced or recorded (REL-08). Until it is, a single insider could ship a release that passes the checks. That release would still be public, signed and logged with its commit, and so attributable and reviewable after the fact.
 
 ## Dependencies (REL-06)
 
@@ -72,7 +72,7 @@ The organisation allows any third-party action to run. The workflow pins every a
   - base images: by digest;
   - the encryption library: vendored, rebuilt from public source, checked by hash.
 - **Software bill of materials:** published for every build, next to its signed record, and covered by the signature through its hash.
-- **Updates:** a dependency update is a change like any other. It goes through a pull request and review (REL-08), and through the re-review policy when it touches the encryption library or Olm (`docs/re-review-policy.md`).
+- **Updates:** a dependency update is a change like any other. It goes through a pull request, reviewed by the Project Lead (REL-08), and through the re-review policy when it touches the encryption library or Olm (`docs/re-review-policy.md`).
 - **Advisories:**
   - the weekly watch (`.github/workflows/upstream-watch.yml`) covers the encryption libraries;
   - GitHub Dependabot alerts cover every other dependency of the application repository (on since 13 November 2026). Alerts are triaged by whether the package is in the code served to browsers.
@@ -80,10 +80,16 @@ The organisation allows any third-party action to run. The workflow pins every a
 
 ## Review before release (REL-08)
 
-- **Team rule.** Changes reach `develop` and `main` through pull requests, and the team requires one approving review from someone other than the author.
-- **Not enforced by GitHub.** On the organisation's current plan, branch protection isn't available for the private application repository, so the rule isn't enforced.
+- **How changes reach a release.**
+  - Developers' changes go through pull requests, which the Project Lead reviews and merges into `develop`.
+  - `develop` is deployed to the development environment and tested there.
+  - Once approved, the Project Lead promotes the changes to production with a pull request from `develop` (or staging) to the production branch.
+- **Not a formal, recorded mechanism.**
+  - Branch protection isn't available for the private application repository on the current plan.
+  - Reviews aren't recorded as GitHub approvals: of the 12 pull requests merged into `develop` from 5 to 13 November 2026, none has an approval recorded from someone other than its author.
+  - The Project Lead's own changes have no second reviewer.
 - **What would close it:**
-  - branch protection or a ruleset on `develop` and `main` requiring one approving review;
-  - dismissing stale approvals, and including administrators;
-  - the same for changes to `.github/`.
-- **Evidence an auditor can have:** the merged pull requests and their reviews, from the repository, under the confidentiality agreement.
+  - a recorded approval in GitHub, by someone other than the author, for every pull request into `develop` and the production branch, including the Project Lead's own changes;
+  - enforcing it with branch protection or a ruleset (dismissing stale approvals, including administrators, and covering `.github/`);
+  - without a plan change: a second approval of each release record in this public repository, which GitHub can enforce here, so that no one person can make a release verify as official.
+- **Evidence an auditor can have:** the merged pull requests, from the repository, under the confidentiality agreement.

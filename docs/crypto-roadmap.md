@@ -1,6 +1,6 @@
 # Cryptographic libraries and roadmap
 
-_Status: draft for APE Space approval · 13 November 2026. Answers checklist rows KEY-07 (key exchange library) and KEY-08 (post-quantum)._
+_Status: approved by APE Space · 15 November 2026. Answers checklist rows KEY-07 (key exchange library) and KEY-08 (post-quantum)._
 
 ## What APE Space uses
 
@@ -40,13 +40,11 @@ The symmetric parts are not the weak point. AES-GCM and HKDF-SHA-256 lose at mos
 
 **Position.** APE Space doesn't currently protect recorded meetings against a future quantum computer, and says so in its customer-facing limits. No standard post-quantum Olm exists, and browsers' Web Crypto offers no post-quantum key agreement that APE Space could rely on everywhere.
 
-**Plan (proposed).**
+### Future development
+
+These steps are planned as future development, without a committed date yet.
 1. **Hybrid key agreement for the media key exchange.** Each participant also publishes an ML-KEM-768 public key, signed with its Ed25519 identity key like its other keys. A media key is then sent under a secret derived (HKDF) from both the Olm session and an ML-KEM encapsulation to the recipient. Recorded traffic stays safe unless both Curve25519 and ML-KEM are broken. This needs an audited ML-KEM implementation in the browser (WebAssembly), or Web Crypto support where available.
 2. **AES-256-GCM for frames.** Derive a 256-bit frame key instead of 128 bits. Every client must change at once, so this ships as one coordinated release.
 3. **Follow upstream.** If Matrix (vodozemac) or Jitsi adopt a post-quantum design, prefer it over an APE Space-only one.
 
-Milestones for these, to be confirmed by APE Space:
-- a design document for step 1 by the end of Q2 2027;
-- an implementation and independent review after that.
-
-Any change here goes through the re-review policy.
+Each step starts with a design document. An implementation needs an independent review under the re-review policy (level A) before release.

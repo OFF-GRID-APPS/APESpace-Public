@@ -1,6 +1,6 @@
 # Keeping your meetings private on your own device
 
-_Status: draft for APE Space approval · 13 November 2026. The customer-facing statement for checklist row CLI-01._
+_Status: draft · 13 November 2026. The customer-facing statement for checklist row CLI-01. Its content is to be reviewed by the reviewers' team or OffGrid Apps before it is published to customers._
 
 ## What end-to-end encryption protects, and what it can't
 
