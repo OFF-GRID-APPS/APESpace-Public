@@ -9,7 +9,7 @@
       "origin": "https://conference.apespace.getape.net"
     }
   ],
-  "repository": "hishd/apespace-e2ee-transparency",
+  "repository": "hishd/apespace-public",
   "signer": "^https://github\\.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/\\.github/workflows/build-docker-image\\.yml@refs/heads/(develop|main|master)$",
   "encryptionLibrary": {
     "path": "/libs/lib-jitsi-meet.min.js",
