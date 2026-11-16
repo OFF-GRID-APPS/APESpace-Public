@@ -4,7 +4,7 @@ _Status: approved by APE Space · 15 November 2026. Answers checklist rows REL-0
 
 ## The pipeline
 
-One GitHub Actions workflow in the application repository (`.github/workflows/build-docker-image.yml`) runs on every push to `develop`, `main`, `master` or `release`. It:
+One GitHub Actions workflow in the application repository (`.github/workflows/build-docker-image.yml`) runs on every push to `develop`, `staging`, `main`, `master` or `release`. It:
 
 1. **Builds** the web app image from the `Dockerfile`:
    - base images pinned by digest (`node:22.23.4@sha256:18a6…`, `jitsi/web@sha256:2183…`);

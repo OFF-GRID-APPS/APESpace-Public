@@ -57,7 +57,7 @@ Verify a record with Sigstore's own tool:
 ```sh
 cosign verify-blob \
   --bundle releases/<release>/builds/<record>.json.sigstore.json \
-  --certificate-identity-regexp '^https://github\.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/\.github/workflows/build-docker-image\.yml@refs/heads/(develop|main|master)$' \
+  --certificate-identity-regexp '^https://github\.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/\.github/workflows/build-docker-image\.yml@refs/heads/(develop|staging|main|master)$' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
   releases/<release>/builds/<record>.json
 ```

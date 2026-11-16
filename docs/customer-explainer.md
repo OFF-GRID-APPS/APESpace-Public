@@ -131,7 +131,7 @@ Our [verification page](https://hishd.github.io/apespace-public/) downloads the 
 
 If everything matches, the page shows **"Verified: development and production run the same signed release"**.
 
-**Current state, 16 November 2026.** Development runs the latest signed release: all 323 files identical, and the encryption library matches the public rebuild. Production doesn't run it yet. It still runs an earlier version of the app, which isn't one of the signed releases and doesn't have the protections described in this document, so the page reports production as not verified. We plan to update production by 29 November 2026. We publish this rather than hide it: the page shows the state at the moment you check.
+**Current state, 16 November 2026.** Development runs the latest signed release: all 323 files identical, and the encryption library matches the public rebuild. Our new production server, conference2.apespace.getape.net, runs the same signed release, with the same result, and replaces the current production server after testing. The current production server, conference.apespace.getape.net, doesn't run it yet. It still runs an earlier version of the app, which isn't one of the signed releases and doesn't have the protections described in this document, so the page reports it as not verified. We plan to complete the switch by 29 November 2026. We publish this rather than hide it: the page shows the state at the moment you check.
 
 Why development matters: you can test the encryption on our development environment as thoroughly as you like, for example with the extension's Inspector below. Once the page shows that production serves byte-for-byte the same code, what you tested is what runs in production.
 

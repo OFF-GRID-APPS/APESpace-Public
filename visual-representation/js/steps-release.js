@@ -3,7 +3,7 @@
 window.WT = window.WT || {};
 
 (function () {
-    const REL = 'e587340ee7f28f08…';
+    const REL = '0637578c8430fc94…';
     const WF = 'https://github.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/.github/workflows/build-docker-image.yml@refs/heads/develop';
 
     // ================================================================ 8
@@ -59,11 +59,11 @@ window.WT = window.WT || {};
                         <li><code>.github/release/make-manifest.mjs</code> walks <code>/usr/share/jitsi-meet</code> and writes <code>{"schema":"apespace-web-manifest/v1","files":{"/path":{"sha256","size"}}}</code>, sorted, with no timestamps. Its SHA-256 is the release ID.</li>
                         <li><code>make-build-record.mjs</code> writes <code>apespace-build-record/v1</code>: release, file count, <code>image@digest</code>, the SHA-256 of the software bill of materials (SBOM), source repository, branch and commit, <code>builtAt</code>, and the Actions run URL.</li>
                     </ul>
-<pre><code>{ "release": "e587340ee7f28f08ea5f02ae…",
+<pre><code>{ "release": "0637578c8430fc9441817a75…",
   "files": 732,
   "image": "ghcr.io/off-grid-apps/…@sha256:…",
-  "sbom": "df73aed3…",
-  "source": { "branch": "develop", "commit": "4991a9e…" },
+  "sbom": "a89a542d…",
+  "source": { "branch": "develop", "commit": "fcf8952…" },
   "builtAt": "2026-11-…", "run": "https://github.com/…/actions/runs/…" }</code></pre>`,
                 flows: [
                     { e: 'build-fp', label: '~730 files', k: 'file', at: 0, dur: 1000 },
@@ -112,7 +112,7 @@ window.WT = window.WT || {};
                     <p>The repository is <b>append-only</b>. New records can be added, but history can't be rewritten or deleted. Combined with the public Rekor log, a release can never be quietly swapped for another.</p>`,
                 hood: `
                     <ul>
-                        <li>Files: <code>releases/&lt;id&gt;/manifest.json</code>, <code>releases/&lt;id&gt;/builds/&lt;UTC time&gt;-&lt;branch&gt;-&lt;commit7&gt;.json</code> and <code>….json.sigstore.json</code> and <code>….sbom.cdx.json</code>. Commit message: <code>release e587340ee7f28f08: develop build 4991a9e</code>.</li>
+                        <li>Files: <code>releases/&lt;id&gt;/manifest.json</code>, <code>releases/&lt;id&gt;/builds/&lt;UTC time&gt;-&lt;branch&gt;-&lt;commit7&gt;.json</code> and <code>….json.sigstore.json</code> and <code>….sbom.cdx.json</code>. Commit message: <code>release 0637578c8430fc94: develop build fcf8952</code>.</li>
                         <li>CI writes with a <b>deploy key</b> that has write access to that one repository only (secret <code>TRANSPARENCY_DEPLOY_KEY</code>), and pins GitHub's SSH host key. If two builds publish at once, it retries with a rebase.</li>
                         <li>A branch ruleset blocks force pushes and deletions.</li>
                     </ul>`,
@@ -139,10 +139,10 @@ window.WT = window.WT || {};
                     <p>Once the release is tested, <b>develop is merged into master</b>, the production branch. The build system builds again, this time from master.</p>
                     <p>Because the build is reproducible, the files come out <b>byte-for-byte identical</b>, so the release ID is <b>the same</b>. The build system adds a second signed record, “built from master”, to the same release folder, and production pulls the image.</p>
                     <p>So anyone can see that <b>production runs exactly the code that was tested on development</b>, not something similar.</p>
-                    <p><b>Today (16 November 2026):</b> production has not been updated yet. It still runs an earlier version of the app that isn't one of the signed releases and doesn't have these protections, so the verification page reports production as not verified. The update is planned by 29 November 2026.</p>`,
+                    <p><b>Today (16 November 2026):</b> the current production server, conference.apespace.getape.net, still runs an earlier version of the app that isn't one of the signed releases and doesn't have these protections, so the verification page reports it as not verified. Its replacement, conference2.apespace.getape.net, already runs the same signed release as development and becomes production after testing, planned by 29 November 2026.</p>`,
                 hood: `
                     <ul>
-                        <li>The second record is signed by the same workflow with the identity <code>…@refs/heads/master</code>. The checks accept <code>develop</code>, <code>main</code> or <code>master</code> and nothing else.</li>
+                        <li>The second record is signed by the same workflow with the identity <code>…@refs/heads/master</code>. The checks accept <code>develop</code>, <code>staging</code>, <code>main</code> or <code>master</code> and nothing else.</li>
                         <li>The verification page reports “development and production run the same signed release” only when both environments match the same release ID file for file.</li>
                     </ul>`,
                 flows: [
@@ -197,7 +197,7 @@ window.WT = window.WT || {};
                     <ul>
                         <li>Page: <code>index.html</code> + <code>verify/check.js</code>, sharing <code>extension/lib/{sigstore,releases}.js</code> with the extension.</li>
                         <li>The same check runs from a terminal: <code>node verify/cli.mjs</code> (Node 20+).</li>
-                        <li>Trust anchors in <code>config.json</code>: Sigstore's Fulcio root and intermediate certificates, Rekor's public key, the OIDC issuer, and the signer pattern <code>^https://github\\.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/\\.github/workflows/build-docker-image\\.yml@refs/heads/(develop|main|master)$</code>.</li>
+                        <li>Trust anchors in <code>config.json</code>: Sigstore's Fulcio root and intermediate certificates, Rekor's public key, the OIDC issuer, and the signer pattern <code>^https://github\\.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/\\.github/workflows/build-docker-image\\.yml@refs/heads/(develop|staging|main|master)$</code>.</li>
                     </ul>`,
                 flows: [
                     { e: 'pages-vpage', label: 'page + config.json', k: 'file', at: 0, dur: 1200 },
@@ -220,7 +220,7 @@ window.WT = window.WT || {};
                     { e: 'raw-v1', label: 'manifest.json', k: 'file', at: 1200, dur: 1100 },
                     { e: 'raw-v1', label: 'manifest.json', k: 'file', at: 1700, dur: 1100 }
                 ],
-                inner: { v1: [ [ '', 0 ], [ '<code>sha256(manifest) = e587340e… ✓</code>', 2800 ] ] },
+                inner: { v1: [ [ '', 0 ], [ '<code>sha256(manifest) = 0637578c… ✓</code>', 2800 ] ] },
                 state: { v1: [ 'ok', 2800 ] }
             },
             {
@@ -256,7 +256,7 @@ window.WT = window.WT || {};
                 plain: `
                     <p>Now the page asks the servers. It downloads the main app file from development and from production, fingerprints it, and looks for <b>the signed release that lists exactly that fingerprint</b>.</p>
                     <p>If no signed release contains it, the server is running code that APE Space's build system never signed, and the check fails right there.</p>
-                    <p>The animation shows both servers on the same release, as after a promotion. <b>Today (16 November 2026)</b> production has not been updated yet. It still runs an earlier version of the app that isn't one of the signed releases and doesn't have these protections, so the verification page reports production as not verified. The update is planned by 29 November 2026.</p>`,
+                    <p>The animation shows both servers on the same release, as after a promotion. <b>Today (16 November 2026)</b> the current production server still runs an earlier version of the app that isn't one of the signed releases and doesn't have these protections, so the verification page reports it as not verified. Its replacement, conference2.apespace.getape.net, already runs the same release as development, and becomes production after testing (planned by 29 November 2026).</p>`,
                 hood: `
                     <p><code>checkEnvironment()</code>: <code>sha256(GET /libs/app.bundle.min.js)</code>, then <code>loader.find('/libs/app.bundle.min.js', hash)</code> over the verified releases.</p>`,
                 flows: [
@@ -264,7 +264,7 @@ window.WT = window.WT || {};
                     { e: 'vprod-v3', label: 'app.bundle.min.js', k: 'file', at: 200, dur: 1300 }
                 ],
                 inner: {
-                    v3: [ [ '', 0 ], [ 'Development → <b>e587340e…</b> · Production → <b>e587340e…</b>', 1600 ] ]
+                    v3: [ [ '', 0 ], [ 'Development → <b>0637578c…</b> · Production → <b>0637578c…</b>', 1600 ] ]
                 },
                 state: { v3: [ 'ok', 1600 ] }
             },
@@ -326,7 +326,7 @@ window.WT = window.WT || {};
                 title: 'The verdict',
                 focus: [ 'youz' ],
                 plain: `
-                    <p>If everything matches, the page shows <b>“${ver}”</b>. Until production is updated (planned by 29 November 2026), it reports development as verified and production as not running a signed release.</p>
+                    <p>If everything matches, the page shows <b>“${ver}”</b>. Until the new production server takes over (planned by 29 November 2026), it reports development and the new production server as verified, and the current production server as not running a signed release.</p>
                     <p><b>What that proves:</b> each server delivered exactly the files of a release that APE Space's build system signed and publicly logged, both delivered the same one, and the encryption code is the publicly rebuildable code.</p>
                     <p><b>What it doesn't:</b> it checks what the servers sent <i>to you</i>, <i>when you checked</i>. To cover every meeting you join, including code that might be served to you alone, there is the browser extension (next chapter).</p>`,
                 hood: `
@@ -336,7 +336,7 @@ window.WT = window.WT || {};
                 inner: {
                     vres: `<b style="color:var(--ok)">${ver}</b>`,
                     v1: '<code>11 releases · manifests ✓</code>', v2: '✓ signature · ✓ certificate · ✓ signer · ✓ public log',
-                    v3: 'Development → <b>e587340e…</b> · Production → <b>e587340e…</b>', v4: '<b>323 / 323</b> identical on each server', v5: '6 / 6 equal to the public rebuild ✓'
+                    v3: 'Development → <b>0637578c…</b> · Production → <b>0637578c…</b>', v4: '<b>323 / 323</b> identical on each server', v5: '6 / 6 equal to the public rebuild ✓'
                 }
             }
         ]
@@ -402,7 +402,7 @@ window.WT = window.WT || {};
                     { e: 'bg-gcfg', rev: true, label: 'trust anchors', k: 'file', at: 300, dur: 900 },
                     { e: 'bg-badge', label: '✓ all match', k: 'ok', at: 2600, dur: 700 }
                 ],
-                inner: { badge: [ [ '<b>…</b> checking', 0 ], [ '<b style="color:var(--ok);font-size:18px">✓</b> every file matches release e587340e…', 3300 ] ] },
+                inner: { badge: [ [ '<b>…</b> checking', 0 ], [ '<b style="color:var(--ok);font-size:18px">✓</b> every file matches release 0637578c…', 3300 ] ] },
                 labels: { badge: { sub: '' } },
                 state: { badge: [ 'ok', 3300 ] }
             },
@@ -596,7 +596,7 @@ window.WT = window.WT || {};
                         <li>The servers can still see who is speaking and when, and how much the video changes, from the size and timing of the encrypted traffic.</li>
                         <li>The app doesn't remember people's keys between meetings, so compare the safety number or emoji in every sensitive meeting.</li>
                         <li>Someone who records a meeting's traffic today might decrypt it with a large quantum computer in the future.</li>
-                        <li>Production doesn't run this release yet (see chapter 8).</li>
+                        <li>The current production server doesn't run this release yet; its replacement, conference2, does (see chapter 8).</li>
                         <li>Encryption can't protect against malware on a participant's device, or a participant who records the meeting.</li>
                         <li>The mobile apps run this same meeting page inside the app. The app shell around it is outside these web checks.</li>
                         <li>The checks rely on GitHub and Sigstore working as designed. Both are public, widely used, and Sigstore's log can be audited by anyone.</li>
@@ -611,7 +611,7 @@ window.WT = window.WT || {};
                     </ul>
 <pre><code>cosign verify-blob \\
   --bundle releases/&lt;id&gt;/builds/&lt;record&gt;.json.sigstore.json \\
-  --certificate-identity-regexp '^https://github\\.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/\\.github/workflows/build-docker-image\\.yml@refs/heads/(develop|main|master)$' \\
+  --certificate-identity-regexp '^https://github\\.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/\\.github/workflows/build-docker-image\\.yml@refs/heads/(develop|staging|main|master)$' \\
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \\
   releases/&lt;id&gt;/builds/&lt;record&gt;.json
 sha256sum releases/&lt;id&gt;/manifest.json   # must print &lt;id&gt;</code></pre>`,

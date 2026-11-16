@@ -109,7 +109,7 @@ node verify/cli.mjs</code></pre>
   <p>Or verify a build record's signature with Sigstore's own tool:</p>
   <pre><code>cosign verify-blob \
   --bundle releases/&lt;release&gt;/builds/&lt;record&gt;.json.sigstore.json \
-  --certificate-identity-regexp '^https://github\.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/\.github/workflows/build-docker-image\.yml@refs/heads/(develop|main|master)$' \
+  --certificate-identity-regexp '^https://github\.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/\.github/workflows/build-docker-image\.yml@refs/heads/(develop|staging|main|master)$' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com \
   releases/&lt;release&gt;/builds/&lt;record&gt;.json</code></pre>
 

@@ -7,10 +7,14 @@
     {
       "name": "Production",
       "origin": "https://conference.apespace.getape.net"
+    },
+    {
+      "name": "Production (new)",
+      "origin": "https://conference2.apespace.getape.net"
     }
   ],
   "repository": "hishd/apespace-public",
-  "signer": "^https://github\\.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/\\.github/workflows/build-docker-image\\.yml@refs/heads/(develop|main|master)$",
+  "signer": "^https://github\\.com/OFF-GRID-APPS/APESpace-Jitsi-Meet-WebApp/\\.github/workflows/build-docker-image\\.yml@refs/heads/(develop|staging|main|master)$",
   "encryptionLibrary": {
     "path": "/libs/lib-jitsi-meet.min.js",
     "sha256": "686d5d759c1a7173736de95cf83fd61ca9fc2abcaedd39ba36e1bd8c8ee0a20c",
