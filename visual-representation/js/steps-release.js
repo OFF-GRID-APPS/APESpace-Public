@@ -604,8 +604,8 @@ window.WT = window.WT || {};
                 hood: `
                     <p>Where to check:</p>
                     <ul>
-                        <li>Public repository: <code>github.com/hishd/apespace-public</code> (signed records, verification page source, extension, rebuild script, attack kit).</li>
-                        <li>Verification page: <code>hishd.github.io/apespace-public</code>.</li>
+                        <li>Public repository: <code>github.com/OFF-GRID-APPS/APESpace-Public</code> (signed records, verification page source, extension, rebuild script, attack kit).</li>
+                        <li>Verification page: <code>off-grid-apps.github.io/APESpace-Public</code>.</li>
                         <li>Sigstore log search: <code>search.sigstore.dev</code>.</li>
                         <li>Verify a record with Sigstore's own tool, without trusting APE Space's page:</li>
                     </ul>

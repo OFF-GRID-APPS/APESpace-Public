@@ -4,7 +4,7 @@ An interactive, step-by-step explainer of how APE Space meetings are end-to-end 
 
 ## Open it
 
-Online: <https://hishd.github.io/apespace-public/visual-representation/>.
+Online: <https://off-grid-apps.github.io/APESpace-Public/visual-representation/>.
 
 From a copy of this repository: open `index.html` in a browser (double-click it). It needs no server, no build step and no internet connection.
 

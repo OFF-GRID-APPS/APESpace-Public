@@ -1,4 +1,4 @@
-// Chapter 7: the public attack kit (apespace-public/e2ee-attacks).
+// Chapter 7: the public attack kit (APESpace-Public/e2ee-attacks).
 // Results shown are from the run against the live development build, 11 November 2026.
 window.WT = window.WT || {};
 

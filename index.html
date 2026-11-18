@@ -93,18 +93,18 @@
       development environment is the code that runs in production.</li>
     <li><strong>The encryption library is the published one.</strong> End-to-end encryption is done by
       <code>lib-jitsi-meet</code>, Jitsi's open-source library, plus public patches. Anyone can rebuild it
-      and get exactly the fingerprint checked here (see <a href="https://github.com/hishd/apespace-public/tree/main/e2ee-module">e2ee-module</a>).</li>
+      and get exactly the fingerprint checked here (see <a href="https://github.com/OFF-GRID-APPS/APESpace-Public/tree/main/e2ee-module">e2ee-module</a>).</li>
   </ol>
 
   <h2>Check your own meeting</h2>
   <p>This page checks what the servers send to this page. To check the meeting you are actually in, install the
-    <a href="https://github.com/hishd/apespace-public/tree/main/extension">APESpace Verify</a> browser extension:
+    <a href="https://github.com/OFF-GRID-APPS/APESpace-Public/tree/main/extension">APESpace Verify</a> browser extension:
     it checks every file your meeting loads, and its E2EE Inspector lets you see for yourself that the media is encrypted.</p>
 
   <h2>Check it without this page</h2>
   <p>The same check from the command line (Node.js 20 or later):</p>
-  <pre><code>git clone https://github.com/hishd/apespace-public.git
-cd apespace-public
+  <pre><code>git clone https://github.com/OFF-GRID-APPS/APESpace-Public.git
+cd APESpace-Public
 node verify/cli.mjs</code></pre>
   <p>Or verify a build record's signature with Sigstore's own tool:</p>
   <pre><code>cosign verify-blob \
@@ -126,7 +126,7 @@ node verify/cli.mjs</code></pre>
   </ul>
 
   <footer>
-    Source of this page and all records: <a href="https://github.com/hishd/apespace-public">github.com/hishd/apespace-public</a>.
+    Source of this page and all records: <a href="https://github.com/OFF-GRID-APPS/APESpace-Public">github.com/OFF-GRID-APPS/APESpace-Public</a>.
   </footer>
 </main>
 

@@ -87,7 +87,7 @@ WT.chapters = [];
                         <li><b>Attacks fail visibly</b> (chapter 7): a public attack kit lets anyone act as a malicious meeting server against a real deployment. Every attack either gets nothing or sets off a verification warning.</li>
                         <li><b>The code is the code</b> (chapters 8–11): reproducible builds, Sigstore-signed release records in a public append-only log, a verification page, a browser extension, and a byte-for-byte public rebuild of the encryption code.</li>
                     </ol>
-                    <p>Sources: the public repository <code>hishd/apespace-public</code> (<code>e2ee-module/</code>, <code>e2ee-attacks/</code>, <code>extension/</code>, <code>verify/</code>).</p>`,
+                    <p>Sources: the public repository <code>OFF-GRID-APPS/APESpace-Public</code> (<code>e2ee-module/</code>, <code>e2ee-attacks/</code>, <code>extension/</code>, <code>verify/</code>).</p>`,
                 inner: { h_screen: scr.call('Bob'), g_screen: scr.call('Alice') }
             },
             {

@@ -220,7 +220,7 @@ Against the pre-fix library, `swap` reads every media key while both users still
 
 ## Running against a build you compiled yourself
 
-The strongest check is to point the kit at a server **you** built from APESpace's public source, so you trust the code the browsers load. Rebuild the encryption library with [`../e2ee-module/build.sh`](../e2ee-module/) and confirm its fingerprints match what the [verification page](https://hishd.github.io/apespace-public/) reports the live servers serve, then run this suite against that server.
+The strongest check is to point the kit at a server **you** built from APESpace's public source, so you trust the code the browsers load. Rebuild the encryption library with [`../e2ee-module/build.sh`](../e2ee-module/) and confirm its fingerprints match what the [verification page](https://off-grid-apps.github.io/APESpace-Public/) reports the live servers serve, then run this suite against that server.
 
 ## A note on the key vault and the Inspector
 
