@@ -8,9 +8,9 @@ Public, signed records of the code APESpace's meeting servers run, so anyone can
 
 ## See how it works: the interactive walkthrough
 
-[![The walkthrough: Alice's browser, APE Space's servers and Bob's browser, with encrypted media passing through the video bridge](visual-representation/preview.png)](https://hishd.github.io/apespace-public/visual-representation/)
+[![The walkthrough: Alice's browser, APE Space's servers and Bob's browser, with encrypted media passing through the video bridge](visual-representation/preview.png)](https://off-grid-apps.github.io/APESpace-Public/visual-representation/)
 
-**[Open the walkthrough](https://hishd.github.io/apespace-public/visual-representation/)**. It is an animated, step-by-step explanation that runs in your browser, with nothing to install. It follows two people through a meeting and shows:
+**[Open the walkthrough](https://off-grid-apps.github.io/APESpace-Public/visual-representation/)**. It is an animated, step-by-step explanation that runs in your browser, with nothing to install. It follows two people through a meeting and shows:
 
 - how end-to-end encryption is switched on and how the keys are shared, without the servers ever holding them;
 - how a dishonest server's attacks are refused, or show up when participants compare the emoji or the safety number;
@@ -19,7 +19,7 @@ Public, signed records of the code APESpace's meeting servers run, so anyone can
 Each step has a plain explanation, and an "Under the hood" panel for technical reviewers. Its source is in [`visual-representation/`](visual-representation/).
 
 **Check it now:**
-- open the [verification page](https://hishd.github.io/apespace-public/), which checks both environments from your browser;
+- open the [verification page](https://off-grid-apps.github.io/APESpace-Public/), which checks both environments from your browser;
 - install the [APESpace Verify extension](extension/), which checks the meeting you are in and lets you inspect its end-to-end encryption;
 - or run `node verify/cli.mjs` from a clone of this repository (Node.js 20+).
 

@@ -1,7 +1,7 @@
 // Command-line version of the verification page (Node 20 or later):
 //
-//   git clone https://github.com/hishd/apespace-public.git
-//   cd apespace-public
+//   git clone https://github.com/OFF-GRID-APPS/APESpace-Public.git
+//   cd APESpace-Public
 //   node verify/cli.mjs
 //
 // Exits with 0 only if every environment serves exactly the same signed release.
